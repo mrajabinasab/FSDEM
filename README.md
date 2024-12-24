@@ -9,7 +9,7 @@ You can install the package using pip:
 ```bash
 pip install fsdem
 ```
-## USAGE
+## Usage
 
 Here, you can see an example of how to use fsdem:
 

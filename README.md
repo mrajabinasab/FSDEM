@@ -1,23 +1,40 @@
+# FSDEM: Feature Selection Dynamic Evaluation Metric
 
-## FSDEM: Feature Selection Dynamic Evaluation Metric
+FSDEM is a novel evaluation metric designed to address the limitations of existing metrics in the field of feature selection. It provides a dynamic approach to evaluate both the performance and stability of feature selection algorithms.
 
-This repository contains the implementation of the **FSDEM (Feature Selection Dynamic Evaluation Metric)** as proposed in the paper "A Dynamic Evaluation Metric for Feature Selection" by Muhammad Rajabinasab, Anton D. Lautrup, Tobias Hyrup, and Arthur Zimek, presented at the International Conference on Similarity Search and Applications (SISAP 2024).
+## Installation
 
-### Overview
-
-FSDEM is a novel evaluation metric designed to address the limitations of existing metrics in the field of feature selection. It provides a dynamic approach to evaluate both the performance and stability of feature selection algorithms. The metric is flexible and reliable, making it suitable for a wide range of applications in machine learning.
-
-### Usage
-
-You can use the code provided in this repository or install the `fsdem` package from PyPI using pip:
+You can install the package using pip:
 
 ```bash
 pip install fsdem
 ```
+## USAGE
+
+Here, you can see an example of how to use fsdem:
+
+```python
+from fsdem import approx_func, fsdem, stability
+
+# Observations of the metric and corresponding number of features
+x = [1, 2, 3, 4, 5]
+y = [0.1, 0.4, 0.6, 0.8, 0.9]
+
+# Approximate the function and its derivative
+f, df = approx_func(x, y)
+
+# Calculate FSDEM score
+fsdem_score = fsdem(f, start=1, end=5)
+print("FSDEM Score:", fsdem_score)
+
+# Calculate stability score
+stability_score = stability(df, start=1, end=5)
+print("Stability Score:", stability_score)
+```
 
 ### Citation
 
-If you use this code in your research, please cite the original paper:
+If you use FSDEM in your research, please cite the original paper:
 
 ```
 @inproceedings{rajabinasab2024fsdem,
